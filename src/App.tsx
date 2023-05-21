@@ -4,7 +4,15 @@ import { ActivityIndicator, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useFonts, Inter_900Black } from "@expo-google-fonts/dev";
+import {
+  useFonts,
+  Inter_900Black,
+  Inter_100Thin,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+} from "@expo-google-fonts/dev";
 
 import { ExamplesScreens } from "./screens/ExamplesScreen";
 import { HomeScreen } from "./screens/HomeScreen";
@@ -14,50 +22,55 @@ const Tab = createBottomTabNavigator();
 
 function TabNavigator() {
   return (
-    <Tab.Navigator
-      initialRouteName="Home"
-      screenOptions={{
-        tabBarActiveTintColor: "#e91e63",
-      }}
-    >
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarLabel: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="List"
-        component={TokenListNavigator}
-        options={{
-          headerShown: false,
-          tabBarLabel: "Tokens",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bank" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Examples"
-        component={ExamplesScreens}
-        options={{
-          tabBarLabel: "Examples",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
+    // <Tab.Navigator
+    //   initialRouteName="Home"
+    //   screenOptions={{
+    //     tabBarActiveTintColor: "#e91e63",
+    //   }}
+    // >
+    //   <Tab.Screen
+    //     name="Home"
+    //     component={HomeScreen}
+    //     options={{
+    //       tabBarLabel: "Home",
+    //       tabBarIcon: ({ color, size }) => (
+    //         <MaterialCommunityIcons name="account" color={color} size={size} />
+    //       ),
+    //     }}
+    //   />
+    //   <Tab.Screen
+    //     name="List"
+    //     component={TokenListNavigator}
+    //     options={{
+    //       headerShown: false,
+    //       tabBarLabel: "Tokens",
+    //       tabBarIcon: ({ color, size }) => (
+    //         <MaterialCommunityIcons name="bank" color={color} size={size} />
+    //       ),
+    //     }}
+    //   />
+    //   <Tab.Screen
+    //     name="Examples"
+    //     component={ExamplesScreens}
+    //     options={{
+    //       tabBarLabel: "Examples",
+    //       tabBarIcon: ({ color, size }) => (
+    //         <MaterialCommunityIcons name="home" color={color} size={size} />
+    //       ),
+    //     }}
+    //   />
+    // </Tab.Navigator>
+    <></>
   );
 }
 
 function App() {
   let [fontsLoaded] = useFonts({
     Inter_900Black,
+    Inter_100Thin,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_700Bold,
   });
 
   if (!fontsLoaded) {
@@ -71,7 +84,7 @@ function App() {
   return (
     <RecoilRoot>
       <NavigationContainer>
-        <TabNavigator />
+        <HomeScreen />
       </NavigationContainer>
     </RecoilRoot>
   );
